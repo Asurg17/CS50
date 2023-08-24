@@ -1,0 +1,44 @@
+#include <cs50.h>
+#include <stdio.h>
+
+void makePyramid(int height);
+void printSpace(int size);
+void printBricks(int size);
+
+int main(void)
+{
+    int height;
+    do
+    {
+        height = get_int("Height: ");
+    }
+    while (height < 1 || height > 8);
+
+    makePyramid(height);
+}
+
+void makePyramid(int height)
+{
+    for (int i = 1; i <= height; i++)
+    {
+        printSpace(height - i);
+        printBricks(i);
+        printf("\n");
+    }
+}
+
+void printSpace(int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        printf(" ");
+    }
+}
+
+void printBricks(int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        printf("#");
+    }
+}
